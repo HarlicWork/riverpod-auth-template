@@ -37,5 +37,6 @@ class AuthProviderController extends AutoDisposeAsyncNotifier<LoginState> {
 
   Future<void> logout() async {
     state = const AsyncValue.data(LoginState.initial());
+    ref.read(goRouterProvider).go('/');
   }
 }

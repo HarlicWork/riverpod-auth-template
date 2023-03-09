@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test/providers/auth_provider.dart';
-import 'package:riverpod_test/providers/router_provider.dart';
 
 class PageNotFound extends StatelessWidget {
   const PageNotFound({super.key});
@@ -32,7 +31,6 @@ class PageNotFound extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () {
                         ref.read(authControllerProvider.notifier).logout();
-                        ref.read(goRouterProvider).go('/');
                       },
                       child: const Text('Logout')),
                 ),
