@@ -11,8 +11,9 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<LoginState> login(String email, String password) async {
     await Future.delayed(const Duration(seconds: 2));
     const response = LoginResponse(
-        token: '',
-        message: "Login Success"); // set object to null to test error
+        token: '', message: "Login Success"); // happy path, token is not empty.
+
+    // const response = null; // sad path, token is empty.
 
     if (response.token.isEmpty) {
       return const LoginState.error("Login Failed");
