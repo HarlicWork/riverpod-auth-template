@@ -10,10 +10,11 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<LoginState> login(String email, String password) async {
     await Future.delayed(const Duration(seconds: 2));
-    const response =
-        LoginResponse(token: '12345abcd', message: "Login Success");
+    const response = LoginResponse(
+        token: '',
+        message: "Login Success"); // set object to null to test error
 
-    if (response == null) {
+    if (response.token.isEmpty) {
       return const LoginState.error("Login Failed");
     }
 

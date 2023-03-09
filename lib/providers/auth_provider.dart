@@ -29,6 +29,9 @@ class AuthProviderController extends AutoDisposeAsyncNotifier<LoginState> {
 
     if (state.hasError == false) {
       ref.read(goRouterProvider).go('/home');
+    } else {
+      state = const AsyncValue.error("Login Failed", StackTrace.empty);
+      ref.read(goRouterProvider).go('/pageNotFound');
     }
   }
 
